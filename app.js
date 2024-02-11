@@ -273,14 +273,14 @@ function selezionaInvio() {
 		correct2.play();
 		console.log('bravo paolo!');
 		score++;
-		document.getElementById('score').innerHTML = `&nbsp;PUNTEGGIO: ${score}&nbsp;`;
+		document.getElementById('score').innerHTML = `&nbsp;SCORE: ${score}&nbsp;`;
 		document.getElementById('score').style.color = 'green';
 		//		document.getElementById('score').style.fontSize = '2vw';
 	} else {
 		// document.getElementById('sbagliato').play();
 		sbagliato.play();
 		score--;
-		document.getElementById('score').innerHTML = `&nbsp;PUNTEGGIO: ${score}&nbsp;`;
+		document.getElementById('score').innerHTML = `&nbsp;SCORE: ${score}&nbsp;`;
 		document.getElementById('score').style.color = 'red';
 		//		document.getElementById('score').style.fontSize = '2vw';
 
