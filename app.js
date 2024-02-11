@@ -1,28 +1,44 @@
+// I Load the Sounds
+let do0 = new Howl({ src: ["audio/do.mp3"] });
+let re = new Howl({ src: ["audio/re.mp3"] });
+let mi = new Howl({ src: ["audio/mi.mp3"] });
+let fa = new Howl({ src: ["audio/fa.mp3"] });
+let sol = new Howl({ src: ["audio/sol.mp3"] });
+let la = new Howl({ src: ["audio/la.mp3"] });
+let si = new Howl({ src: ["audio/si.mp3"] });
+let do1 = new Howl({ src: ["audio/do1.mp3"] });
+let re1 = new Howl({ src: ["audio/re1.mp3"] });
+let mi1 = new Howl({ src: ["audio/mi1.mp3"] });
+let click = new Howl({ src: ["audio/click.mp3"] });
+let correct2 = new Howl({ src: ["audio/correct2.mp3"] });
+let sbagliato = new Howl({ src: ["audio/sound_error.wav"] });
+let rigioca = new Howl({ src: ["audio/rigioca.mp3"] });
+
 let numbersArr = ["images/7SegmentNumbers_0.png", "images/7SegmentNumbers_1.png",
-								 "images/7SegmentNumbers_2.png", "images/7SegmentNumbers_3.png", 
-								 "images/7SegmentNumbers_4.png", "images/7SegmentNumbers_5.png", 
-								 "images/7SegmentNumbers_6.png", "images/7SegmentNumbers_7.png", 
-								 "images/7SegmentNumbers_8.png", "images/7SegmentNumbers_9.png"];
+	"images/7SegmentNumbers_2.png", "images/7SegmentNumbers_3.png",
+	"images/7SegmentNumbers_4.png", "images/7SegmentNumbers_5.png",
+	"images/7SegmentNumbers_6.png", "images/7SegmentNumbers_7.png",
+	"images/7SegmentNumbers_8.png", "images/7SegmentNumbers_9.png"];
 
 let numeriImmessiArr = [],
-		numeriImmessi,
-		numeriEstrattiArr = [],
-		score = 0;
+	numeriImmessi,
+	numeriEstrattiArr = [],
+	score = 0;
 
 let milliseconds = 1000,
-		howManyNumbers = 4;
+	howManyNumbers = 4;
 
 let visualizedNumbers = document.getElementById("displayNumbers"),
-		numbers = document.getElementById("numbers"),
-		countDownNumbers = document.getElementById('countDown'),
-		btnN = document.getElementById('btnN'),
-		btnH = document.getElementById('btnH'),
-		btnS = document.getElementById('btnS'),
-		click = document.getElementById('click'),
-		rigioca = document.getElementById('rigioca');
+	numbers = document.getElementById("numbers"),
+	countDownNumbers = document.getElementById('countDown'),
+	btnN = document.getElementById('btnN'),
+	btnH = document.getElementById('btnH'),
+	btnS = document.getElementById('btnS'),
+	invio = document.getElementById('invio');
+
 
 function casualNumber() {
-	numbersArr = numbersArr.sort(function(a, b) { return 0.5 - Math.random()});
+	numbersArr = numbersArr.sort(function (a, b) { return 0.5 - Math.random() });
 }
 
 
@@ -31,7 +47,7 @@ function newNumber() {
 	numeriImmessiArr = [];
 	clearImages();
 	casualNumber();
-	for(let i = 0; i < howManyNumbers; i++) {
+	for (let i = 0; i < howManyNumbers; i++) {
 		if (numbersArr[i] === "images/7SegmentNumbers_0.png") {
 			numeriEstrattiArr.push('0');
 		} else if (numbersArr[i] === "images/7SegmentNumbers_1.png") {
@@ -52,38 +68,38 @@ function newNumber() {
 			numeriEstrattiArr.push('8');
 		} else if (numbersArr[i] === "images/7SegmentNumbers_9.png") {
 			numeriEstrattiArr.push('9');
-		}   
+		}
 		visualizedNumbers.innerHTML += `<img src="${numbersArr[i]}">`;
 	}
-	console.log(numeriEstrattiArr);	
+	console.log(numeriEstrattiArr);
 }
 
 function moreNumbers() {
 	if (howManyNumbers <= 9) {
-		howManyNumbers ++;
+		howManyNumbers++;
 		document.getElementById('pHowManyNumbers').innerHTML = `CIFRE: ${howManyNumbers}`;
 		click.play();
 	}
 }
 function lessNumbers() {
 	if (howManyNumbers > 1) {
-		howManyNumbers --;
+		howManyNumbers--;
 		document.getElementById('pHowManyNumbers').innerHTML = `CIFRE: ${howManyNumbers}`;
 		click.play();
 	}
 }
 
 function moreSeconds() {
-		milliseconds += 200;
-		let seconds = milliseconds / 1000;
-		document.getElementById('pHowManySeconds').innerHTML = `SECONDI: ${seconds.toFixed(1)}`;
-		click.play();
-	}
+	milliseconds += 200;
+	let seconds = milliseconds / 1000;
+	document.getElementById('pHowManySeconds').innerHTML = `SECONDI: ${seconds.toFixed(1)}`;
+	click.play();
+}
 
 function lessSeconds() {
 	if (milliseconds > 200) {
 		milliseconds -= 200;
-		seconds = milliseconds / 1000; 
+		seconds = milliseconds / 1000;
 		document.getElementById('pHowManySeconds').innerHTML = `SECONDI: ${seconds.toFixed(1)}`;
 		click.play();
 	}
@@ -100,7 +116,7 @@ function restart() {
 // per cancellare l'array di immagini inserisco una immagine trasparente della larghezza di 1 pixel
 function clearImages() {
 	visualizedNumbers.innerHTML = '<img src="images/immagine_trasparente.png" width=1>';
-}	
+}
 
 function hideDisplay() {
 	displayNumbers.style.opacity = '0';
@@ -131,158 +147,143 @@ function showDisplayForALittle() {
 
 function buttonN() {
 	countDownOneA();
-//	defaultButtonColors();
-//	btnN.style.border = "2px outset darkred";
-//	btnN.style.backgroundColor = "darkcyan";
-//	btnN.style.color = "darkblue";
-//	setTimeout(buttonNUp, 400);
+	//	defaultButtonColors();
+	//	btnN.style.border = "2px outset darkred";
+	//	btnN.style.backgroundColor = "darkcyan";
+	//	btnN.style.color = "darkblue";
+	//	setTimeout(buttonNUp, 400);
 	click.play()
 }
 function buttonH() {
 	hideDisplay();
-//	btnH.style.border = "2px outset darkred";
-//	btnH.style.backgroundColor = "darkcyan";
-//	btnH.style.color = "darkblue";
-//	setTimeout(buttonHUp, 400);
+	//	btnH.style.border = "2px outset darkred";
+	//	btnH.style.backgroundColor = "darkcyan";
+	//	btnH.style.color = "darkblue";
+	//	setTimeout(buttonHUp, 400);
 	click.play()
 }
 function buttonS() {
 	showDisplay();
-//	btnS.style.border = "2px outset darkred";
-//	btnS.style.backgroundColor = "darkcyan";
-//	btnS.style.color = "darkblue";
-//	setTimeout(buttonSUp, 400);
+	//	btnS.style.border = "2px outset darkred";
+	//	btnS.style.backgroundColor = "darkcyan";
+	//	btnS.style.color = "darkblue";
+	//	setTimeout(buttonSUp, 400);
 	click.play()
 }
-
-//function buttonNUp(){
-//	btnN.style.border = "5px inset darkred";
-//	btnN.style.backgroundColor = "darkblue";
-//	btnN.style.color = "darkcyan";
-//}
-//function buttonHUp(){
-//	btnH.style.border = "5px inset darkred";
-//	btnH.style.backgroundColor = "darkblue";
-//	btnH.style.color = "darkcyan";
-//}
-//function buttonSUp(){
-//	btnS.style.border = "5px inset darkred";
-//	btnS.style.backgroundColor = "darkblue";
-//	btnS.style.color = "darkcyan";
-//}
-
-//function defaultButtonColors() {
-//	document.getElementById('zero').style.backgroundColor = 'darkblue';
-//	document.getElementById('one').style.backgroundColor = 'darkblue';
-//	document.getElementById('two').style.backgroundColor = 'darkblue';
-//	document.getElementById('three').style.backgroundColor = 'darkblue';
-//	document.getElementById('four').style.backgroundColor = 'darkblue';
-//	document.getElementById('five').style.backgroundColor = 'darkblue';
-//	document.getElementById('six').style.backgroundColor = 'darkblue';
-//	document.getElementById('seven').style.backgroundColor = 'darkblue';
-//	document.getElementById('eight').style.backgroundColor = 'darkblue';
-//	document.getElementById('nine').style.backgroundColor = 'darkblue';
-//}
 
 function seleziona0() {
 	numeriImmessiArr.push('0');
 	numeriImmessi = numeriImmessiArr.join('');
-//	document.getElementById('zero').style.backgroundColor = 'darkred';
-	document.getElementById('mi1').play();
+	//	document.getElementById('zero').style.backgroundColor = 'darkred';
+	// document.getElementById('mi1').play();
+	mi1.play();
 	countDownNumbers.innerHTML += 0;
 }
 function seleziona1() {
 	numeriImmessiArr.push('1');
 	numeriImmessi = numeriImmessiArr.join('');
-//	document.getElementById('one').style.backgroundColor = 'darkred';
-	document.getElementById('do').play();
+	//	document.getElementById('one').style.backgroundColor = 'darkred';
+	// document.getElementById('do').play();
+	do0.play();
 	countDownNumbers.innerHTML += 1;
 }
 function seleziona2() {
 	numeriImmessiArr.push('2');
 	numeriImmessi = numeriImmessiArr.join('');
-//	document.getElementById('two').style.backgroundColor = 'darkred';
-	document.getElementById('re').play();
+	//	document.getElementById('two').style.backgroundColor = 'darkred';
+	// document.getElementById('re').play();
+	re.play();
 	countDownNumbers.innerHTML += 2;
 }
 function seleziona3() {
 	numeriImmessiArr.push('3');
 	numeriImmessi = numeriImmessiArr.join('');
-//	document.getElementById('three').style.backgroundColor = 'darkred';
-	document.getElementById('mi').play();
+	//	document.getElementById('three').style.backgroundColor = 'darkred';
+	// document.getElementById('mi').play();
+	mi.play();
 	countDownNumbers.innerHTML += 3;
 }
 function seleziona4() {
 	numeriImmessiArr.push('4');
 	numeriImmessi = numeriImmessiArr.join('');
-//	document.getElementById('four').style.backgroundColor = 'darkred';
-	document.getElementById('fa').play();
+	//	document.getElementById('four').style.backgroundColor = 'darkred';
+	// document.getElementById('fa').play();
+	fa.play();
 	countDownNumbers.innerHTML += 4;
 }
 function seleziona5() {
 	numeriImmessiArr.push('5');
 	numeriImmessi = numeriImmessiArr.join('');
-//	document.getElementById('five').style.backgroundColor = 'darkred';
-	document.getElementById('sol').play();
+	//	document.getElementById('five').style.backgroundColor = 'darkred';
+	// document.getElementById('sol').play();
+	sol.play();
 	countDownNumbers.innerHTML += 5;
 }
 function seleziona6() {
 	numeriImmessiArr.push('6');
 	numeriImmessi = numeriImmessiArr.join('');
-//	document.getElementById('six').style.backgroundColor = 'darkred';
-	document.getElementById('la').play();
+	//	document.getElementById('six').style.backgroundColor = 'darkred';
+	// document.getElementById('la').play();
+	la.play();
 	countDownNumbers.innerHTML += 6;
 }
 function seleziona7() {
 	numeriImmessiArr.push('7');
 	numeriImmessi = numeriImmessiArr.join('');
-//	document.getElementById('seven').style.backgroundColor = 'darkred';
-	document.getElementById('si').play();
+	//	document.getElementById('seven').style.backgroundColor = 'darkred';
+	// document.getElementById('si').play();
+	si.play();
 	countDownNumbers.innerHTML += 7;
 }
 function seleziona8() {
 	numeriImmessiArr.push('8');
 	numeriImmessi = numeriImmessiArr.join('');
-//	document.getElementById('eight').style.backgroundColor = 'darkred';
-	document.getElementById('do1').play();
+	//	document.getElementById('eight').style.backgroundColor = 'darkred';
+	// document.getElementById('do1').play();
+	do1.play();
 	countDownNumbers.innerHTML += 8;
 }
 function seleziona9() {
 	numeriImmessiArr.push('9');
 	numeriImmessi = numeriImmessiArr.join('');
-//	document.getElementById('nine').style.backgroundColor = 'darkred';
-	document.getElementById('re1').play();
+	//	document.getElementById('nine').style.backgroundColor = 'darkred';
+	// document.getElementById('re1').play();
+	re1.play();
 	countDownNumbers.innerHTML += 9;
 }
 function selezionaCanc() {
 	numeriImmessiArr.pop();
 	numeriImmessi = numeriImmessiArr.join('');
-	document.getElementById('click').play();
+	// document.getElementById('click').play();
+	click.play();
 	countDownNumbers.innerHTML = numeriImmessi;
 }
 
 function selezionaInvio() {
 	/* 
-	Attenzione! Se tentiamo di comparare due array otteniamo un risultato no voluto, perché, anche se 
+	Attenzione! Se tentiamo di comparare due array otteniamo un risultato non voluto, perché, anche se 
 	a noi sembrano uguali, per JavaScript non lo sono: se aArr = [1, 2, 3] e bArr = [1,2,3];
 	console.log(aArr == bArr) dà false!
 	Risolviamo così: JSON.stringify(numeriEstrattiArr) == JSON.stringify(numeriImmessiArr)  ==> dà true.
 	soluzione trovata su: https://stackoverflow.com/questions/7837456/how-to-compare-arrays-in-javascript 
 	*/
+	// document.getElementById("invio").disabled = true;
 	if (JSON.stringify(numeriEstrattiArr) == JSON.stringify(numeriImmessiArr)) {
-		document.getElementById('correct2').play();
+		// document.getElementById('correct2').play();
+		correct2.play();
 		console.log('bravo paolo!');
-		score ++;
+		score++;
 		document.getElementById('score').innerHTML = `&nbsp;PUNTEGGIO: ${score}&nbsp;`;
 		document.getElementById('score').style.color = 'green';
-//		document.getElementById('score').style.fontSize = '2vw';
+		//		document.getElementById('score').style.fontSize = '2vw';
 	} else {
-		document.getElementById('sbagliato').play();
-		score --; 
+		// document.getElementById('sbagliato').play();
+		sbagliato.play();
+		score--;
 		document.getElementById('score').innerHTML = `&nbsp;PUNTEGGIO: ${score}&nbsp;`;
 		document.getElementById('score').style.color = 'red';
-//		document.getElementById('score').style.fontSize = '2vw';
-		
+		//		document.getElementById('score').style.fontSize = '2vw';
+
 	}
 	showDisplay();
 	click.play();

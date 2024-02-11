@@ -11,16 +11,17 @@ function myFunction(event) {
 // questo è un altro codice che funziona meglio //
 window.addEventListener("keydown", myFunction);
 function myFunction(event) {
-    if (event.which == 48)  { seleziona0(); }
-    if (event.which == 49)  { seleziona1(); }
-    if (event.which == 50)  { seleziona2(); }
-    if (event.which == 51)  { seleziona3(); }
-    if (event.which == 52)  { seleziona4(); }
-    if (event.which == 53)  { seleziona5(); }
-    if (event.which == 54)  { seleziona6(); }
-    if (event.which == 55)  { seleziona7(); }
-    if (event.which == 56)  { seleziona8(); }
-    if (event.which == 57)  { seleziona9(); }
+    // 48 is '0' in the keyboard; 96 is '0' in the numpad!
+    if ((event.which == 48) || (event.which == 96))  { seleziona0(); }
+    if ((event.which == 49) || (event.which == 97))  { seleziona1(); }
+    if ((event.which == 50) || (event.which == 98))  { seleziona2(); }
+    if ((event.which == 51) || (event.which == 99))  { seleziona3(); }
+    if ((event.which == 52) || (event.which == 100))  { seleziona4(); }
+    if ((event.which == 53) || (event.which == 101))  { seleziona5(); }
+    if ((event.which == 54) || (event.which == 102))  { seleziona6(); }
+    if ((event.which == 55) || (event.which == 103))  { seleziona7(); }
+    if ((event.which == 56) || (event.which == 104))  { seleziona8(); }
+    if ((event.which == 57) || (event.which == 105))  { seleziona9(); }
 
 //    if (event.which == 65)  { letterA(); }
 //    if (event.which == 66)  { letterB(); }
