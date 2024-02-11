@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Numbers Memory</title>
+	<link rel="stylesheet" href="styles.css">
+
+<!--	
+Autore: Paolo Maria Guardiani
+Le immagini dei numeri le ho prese da www.openclipart.org
+-->
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/skeleton/2.0.4/skeleton.css">
+<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN"
+    crossorigin="anonymous">	
+</head>
+<body>
+	<audio id="do" src="audio/do.mp3"></audio>
+	<audio id="re" src="audio/re.mp3"></audio>
+	<audio id="mi" src="audio/mi.mp3"></audio>
+	<audio id="fa" src="audio/fa.mp3"></audio>
+	<audio id="sol" src="audio/sol.mp3"></audio>
+	<audio id="la" src="audio/la.mp3"></audio>
+	<audio id="si" src="audio/si.mp3"></audio>
+	<audio id="do1" src="audio/do1.mp3"></audio>
+	<audio id="re1" src="audio/re1.mp3"></audio>
+	<audio id="mi1" src="audio/mi1.mp3"></audio>
+	<audio id="click" src="audio/click.mp3"></audio>
+	<audio id="correct2" src="audio/correct2.mp3"></audio>
+	<audio id="sbagliato" src="audio/sbagliato.mp3"></audio>
+	<audio id="rigioca" src="audio/rigioca.mp3"></audio>
+	<br>
+	
+	<!--    CONTENITORE GENERALE    -->
+	<div id="generale">
+
+	<!--    	PRIMA RIGA DI BOTTONI PRINCIPALI    -->
+		<div class="u-full-width" id="containerOne">
+			<div class="row">
+				<div class="three columns">
+					<button class="button button-primary u-full-width" id="nuovoNumero"
+					onclick="buttonN();">NUOVO <span style="color: yellow;">N</span></button> 
+				</div>
+				<div class="three columns">
+					<button class="button button-primary u-full-width" id="nascondiNumero"
+					onclick="buttonH();">NASCONDI <span style="color: yellow;">H</span></button> 
+				</div>
+				<div class="three columns">
+					<button class="button button-primary u-full-width" id="mostraNumero"
+					onclick="buttonS();">MOSTRA <span style="color: yellow;">S</span></butto>	
+				</div>
+				<div class="three columns">
+					<h6 id="score">PUNTEGGIO: 0&nbsp;</h6>	
+				</div>
+			</div>
+
+			<br>
+	<!--	</div>-->
+
+	<!--	SECONDA RIGA DI BOTTONI PRINCIPALI    -->
+	<!--	<div class="container">	-->
+			<div class="row">
+				<div class="two columns">
+					<h6 id="pHowManyNumbers">CIFRE: 4</h6>
+				</div>
+				<div class="three columns">
+					<button class="button button-primary" id="btnMoreNumbers" onclick="moreNumbers();"> + </button>
+					<button class="button button-primary" id="btnLessNumbers" onclick="lessNumbers();"> - </button>				
+				</div>
+				<div class="two columns">
+					<h6 id="pHowManySeconds">SECONDI: 1.0</h6>
+				</div>
+				<div class="three columns">
+					<button class="button button-primary" id="btnMoreSeconds" onclick="moreSeconds();"> + </button>
+					<button class="button button-primary" id="btnLessSeconds" onclick="lessSeconds();"> - </button>
+				</div>
+				<div class="two columns">
+					<button class="button button-primary" id="btnRestart" onclick="restart();"> 
+					<span style="color: yellow;">R</span>IGIOCA </button>
+				</div>
+			</div>
+		</div>
+
+
+	<!--		COUNTDOWN    -->
+		<div class="u-full-width" align="center" id="containerTwo">
+			<div class="row">
+				<div class="four columns">&nbsp;</div>
+				<div class="four columns">
+					<h1 id="countDown">&nbsp;</h1>
+				</div>
+				<div class="four columns">&nbsp;</div>	
+			</div>
+	<!--	</div>-->
+
+			<!--		DISPLAY DEI NUMERI ESTRATTI    -->
+			<div class="row">
+				<div class="u-full-width" id="displayNumbers">
+					<img src="images/immagine_trasparente.png" width=100>
+				</div>		
+			</div>		
+		</div>
+
+
+	<!--    BOTTONI DEI NUMERI    -->
+		<div class="u-full-width" id="numbers">
+			<div class="row">
+				<div class="two columns">
+					<button class="button u-full-width" id="one" onclick="seleziona1();"> 1 </button>
+				</div>
+				<div class="two columns">
+					<button class="button u-full-width" id="two" onclick="seleziona2();"> 2 </button>
+				</div>
+				<div class="two columns">
+					<button class="button u-full-width" id="three" onclick="seleziona3();"> 3 </button>
+				</div>
+				<div class="two columns">
+					<button class="button u-full-width" id="four" onclick="seleziona4();"> 4 </button>
+				</div>
+				<div class="two columns">
+					<button class="button u-full-width" id="five" onclick="seleziona5();"> 5 </button>
+				</div>
+				<div class="two columns">
+					<button class="button u-full-width" id="six" onclick="seleziona6();"> 6 </button>
+				</div>
+			</div>
+
+			<br>
+
+			<div class="row">
+				<div class="two columns">
+					<button class="button u-full-width" id="seven" onclick="seleziona7();"> 7 </button>
+				</div>
+				<div class="two columns">
+					<button class="button u-full-width" id="eight" onclick="seleziona8();"> 8 </button>
+				</div>
+				<div class="two columns">
+					<button class="button u-full-width" id="nine" onclick="seleziona9();"> 9 </button>
+				</div>
+				<div class="two columns">
+					<button class="button u-full-width" id="zero" onclick="seleziona0();"> 0 </button>
+				</div>
+				<div class="two columns">
+					<button class="button button-primary u-full-width" id="canc" onclick="selezionaCanc();"> 
+					<i class="fa fa-trash-o"></i> <span style="color: lightpink;">C</span>ANC </button>
+				</div>
+				<div class="two columns">
+					<button class="button button-primary u-full-width" id="invio" onclick="selezionaInvio();">
+					<i class="fa fa-thumbs-o-up"></i> <span style="color: lightpink;">O</span>K </button>
+				</div>
+			</div>
+		</div>	
+	</div>
+	
+<script src="app.js"></script>
+<script src="ascoltaTastiera.js"></script>
+</body>
+</html>

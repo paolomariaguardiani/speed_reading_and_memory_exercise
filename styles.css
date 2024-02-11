@@ -1,0 +1,120 @@
+
+body {
+	background-color: black;
+	overflow: hidden
+}
+
+img {
+	padding: 5px;
+/*	background-color: aquamarine;*/
+	width: 6vw;
+}
+
+#generale {
+/*	background-color: yellow;*/
+	width: 100vw;
+	height: 90vh;
+	display: flex;
+	flex-flow: column;
+	justify-content: space-around;
+	align-items: center
+}
+
+#containerOne {
+/*	background-color: aliceblue;*/
+	text-align: center;
+	text-align: center;
+	width: 90vw;
+}
+
+#nuovoNumero, #nascondiNumero, #mostraNumero {
+	font-size: 1.5em;
+	font-weight: bolder;
+	color: lightpink;
+	background-color: darkslategrey;
+}
+#nuovoNumero:hover, #nascondiNumero:hover, #mostraNumero:hover {
+	background-color: darkcyan;
+}
+
+#score {
+	font-size: 1.5em;
+	font-weight: 900;
+	color: grey;
+}
+
+#pHowManyNumbers, #pHowManySeconds {
+	text-align: right;
+	font-size: 1.3em;
+	font-weight: 900;
+	color: grey;
+}
+
+#btnMoreNumbers, #btnLessNumbers, 
+#btnMoreSeconds, #btnLessSeconds {
+	font-size: 1.5em;
+	font-weight: 900;
+	background-color: darkslategrey;	
+}
+#btnMoreNumbers:hover, #btnLessNumbers:hover, 
+#btnMoreSeconds:hover, #btnLessSeconds:hover {
+	background-color: darkcyan;	
+}
+
+#btnRestart {
+	font-size: .7em;
+	font-weight: 900;
+	background-color: darkred;
+	color: lightblue;	
+}
+#btnRestart:hover {
+	background-color: darkslateblue;
+	color: darkred;	
+}
+
+
+#containerTwo {
+	width: 90vw;	
+}
+
+#countDown {
+	color: orangered;	
+	font-weight: bolder;
+}
+
+#displayNumbers {
+	width: 90vw;
+	opacity: 0;
+}
+
+#numbers {
+	width: 90vW;
+	opacity: 0;
+}
+
+#one, #two, #three, #four, #five, 
+#six, #seven, #eight, #nine, #zero {
+	background-color: darkslateblue;	
+	padding-bottom: 10px;
+	color: red;
+	font-size: 1.5em;
+}
+
+#one:hover, #two:hover, #three:hover, #four:hover, #five:hover, 
+#six:hover, #seven:hover, #eight:hover, #nine:hover, #zero:hover {
+	background-color: darkcyan;
+	color: orange;
+	font-size: 1.5em;
+}
+
+#canc, #invio {
+	font-weight: bolder;
+	font-size: 1.5em;
+	background-color: darkslategrey;
+	color: yellow;
+}
+
+#canc:hover, #invio:hover {
+	background-color: darkcyan;
+	color: yellow;
+}
