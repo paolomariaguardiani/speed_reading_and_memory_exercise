@@ -77,14 +77,15 @@ function newNumber() {
 function moreNumbers() {
 	if (howManyNumbers <= 9) {
 		howManyNumbers++;
-		document.getElementById('pHowManyNumbers').innerHTML = `CIFRE: ${howManyNumbers}`;
-		click.play();
+		document.getElementById('pHowManyNumbers').innerHTML = `DIGITS: ${howManyNumbers}`;
+
 	}
 }
+
 function lessNumbers() {
 	if (howManyNumbers > 1) {
 		howManyNumbers--;
-		document.getElementById('pHowManyNumbers').innerHTML = `CIFRE: ${howManyNumbers}`;
+		document.getElementById('pHowManyNumbers').innerHTML = `DIGITS: ${howManyNumbers}`;
 		click.play();
 	}
 }
@@ -92,7 +93,7 @@ function lessNumbers() {
 function moreSeconds() {
 	milliseconds += 200;
 	let seconds = milliseconds / 1000;
-	document.getElementById('pHowManySeconds').innerHTML = `SECONDI: ${seconds.toFixed(1)}`;
+	document.getElementById('pHowManySeconds').innerHTML = `SECONDS: ${seconds.toFixed(1)}`;
 	click.play();
 }
 
@@ -100,7 +101,7 @@ function lessSeconds() {
 	if (milliseconds > 200) {
 		milliseconds -= 200;
 		seconds = milliseconds / 1000;
-		document.getElementById('pHowManySeconds').innerHTML = `SECONDI: ${seconds.toFixed(1)}`;
+		document.getElementById('pHowManySeconds').innerHTML = `SECONDS: ${seconds.toFixed(1)}`;
 		click.play();
 	}
 }
